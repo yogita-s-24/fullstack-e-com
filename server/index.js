@@ -38,7 +38,7 @@ app.get("/health", (req, res) => {
   res.send("Status : Ok");
 });
 
-const PORT = 3000;
+const PORT = 5000;
 
 app.post("/product", async (req, res) => {
   //console.log('Product Created');
