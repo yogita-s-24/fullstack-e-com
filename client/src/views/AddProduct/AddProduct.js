@@ -1,8 +1,11 @@
 import React from 'react'
+import './AddProduct.css'
 
 function AddProduct() {
   return (
-    <div>AddProduct</div>
+    <>
+    <h1 className='text-center'>Add Product</h1>
+    </>
   )
 }
 
