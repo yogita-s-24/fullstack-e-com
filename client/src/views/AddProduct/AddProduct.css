@@ -1,0 +1,11 @@
+.add-btn{
+    background-color: #3e1e7f;
+    color: white;
+    border-radius: 10px;
+    padding: 7px 20px;
+    border: none;
+}
+
+::placeholder{
+    color:#3e1e7f;
+}

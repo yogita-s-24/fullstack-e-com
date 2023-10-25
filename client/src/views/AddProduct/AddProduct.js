@@ -27,14 +27,21 @@ function AddProduct() {
     const response = await axios.post('/product',product);
     // console.log(response);
     showToast(response.data.message);
+
+    setName('')
+    setPrice('')
+    setDescription('')
+    setProductImage('')
+    setBrand('')
+
   }
 
 
   return (
     <>
-      <h1 className="text-center">Add Product</h1>
+      <h1 className="text-center mt-3">Add Product</h1>
       <form>
-        <div className="card container w-50 mt-5 p-5">
+        <div className="card container w-50 mt-4 p-3" style={{border:'1px solid #3e1e7f'}}>
           <div className="">
             <div className="container mt-3">
               <input
@@ -96,7 +103,7 @@ function AddProduct() {
               />
             </div>
             <div className="text-center">
-              <button className="btn btn-dark mt-4" type="button" onClick={addProduct}>Add Products</button>
+              <button className="my-4 add-btn" type="button" onClick={addProduct}>Add Products</button>
             </div>
           </div>
         </div>

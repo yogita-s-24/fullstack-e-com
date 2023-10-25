@@ -1,2 +1,28 @@
-.image{
+.delete-icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 10px;
+    /* padding: 5px; */
+    border-bottom: solid 0.5px #3e1e7f;
+    border-left: solid 1px #3e1e7f;
+    border-radius:5px ;
+}
+
+.card-container{
+    border: solid 1px #3e1e7f;
+    margin-top: 10px;
+    
+}
+
+.view-more-btn{
+    background-color: #3e1e7f;
+    border-radius: 15px;
+}
+
+.view-btn{
+    color: white;
+    text-decoration: none;
 }
