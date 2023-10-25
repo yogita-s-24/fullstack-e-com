@@ -40,7 +40,6 @@ function Home() {
           } = product;
 
           return (
-          
             <div
               className="card shadow text-center card-container"
               style={{ width: "18rem" }}
@@ -54,7 +53,13 @@ function Home() {
                     className="delete-icon shadow p-2 ">
                     ❌
                   </a>
-                
+
+                  <a
+                    href={`/update-product/${_id}`}
+                    target="_blank"
+                    className="update-icon shadow p-2 ">
+                    🖊
+                  </a>
                 </div>
                 <div>
                   <img
@@ -68,7 +73,10 @@ function Home() {
                   <p className="text-center m-0">₹{price}</p>
                   <p className="text-center m-0 fs-6">{brand}</p>
                   <div className="container p-1 w-50 view-more-btn mt-2 shadow">
-                    <a href={`/product-detail/${_id}`} target="_blank" className="view-btn px-2">
+                    <a
+                      href={`/product-detail/${_id}`}
+                      target="_blank"
+                      className="view-btn px-2">
                       View More
                     </a>
                   </div>

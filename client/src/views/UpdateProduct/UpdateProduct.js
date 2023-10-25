@@ -1,43 +1,51 @@
-import React, { useState } from "react";
-import "./AddProduct.css";
+import React, { useEffect, useState } from "react";
+import "./UpdateProduct.css";
 import showToast from "crunchy-toast";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-function AddProduct() {
+function UpdateProduct() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [productImage, setProductImage] = useState("");
   const [brand, setBrand] = useState("");
 
-  const addProduct = async () => {
-    //add product to the database here
-    if (!name || !price || !description || !productImage || !brand) {
-      showToast("Please fill all fields");
-    }
+  const { _id } = useParams();
 
-    const product = {
-      name: name,
-      price: price,
-      description: description,
-      productImage: productImage,
-      brand: brand,
+  const loadProduct = async () => {
+    const response = await axios.get(`/product/${_id}`);
+
+    const { name, price, description, productImage, brand } =
+      response?.data?.data;
+
+    setName(name);
+    setPrice(price);
+    setDescription(description);
+    setProductImage(productImage);
+    setBrand(brand);
+  };
+
+  useEffect(() => {
+    loadProduct();
+  }, []);
+
+  const updateProduct = async () => {
+    const updateeDetails = {
+      name,
+      price,
+      description,
+      productImage,
+      brand,
     };
 
-    const response = await axios.post("/product", product);
-    // console.log(response);
-    showToast(response.data.message);
-
-    setName("");
-    setPrice("");
-    setDescription("");
-    setProductImage("");
-    setBrand("");
+    const response = await axios.put(`/product/${_id}`, updateeDetails);
+    showToast(response?.data?.message);
   };
 
   return (
     <>
-      <h1 className="text-center mt-3">Add Product</h1>
+      <h1 className="text-center mt-3">Update Product</h1>
       <form>
         <div
           className="card container w-50 mt-4 p-3"
@@ -106,8 +114,8 @@ function AddProduct() {
               <button
                 className="my-4 add-btn"
                 type="button"
-                onClick={addProduct}>
-                Add Products
+                onClick={updateProduct}>
+                Update Product
               </button>
             </div>
           </div>
@@ -117,4 +125,4 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default UpdateProduct;
