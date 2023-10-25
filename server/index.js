@@ -65,10 +65,10 @@ app.post("/product", async (req, res) => {
 });
 
 //get products using name
-app.get("/product", async (req, res) => {
-  const { name } = req.query;
+app.get("/product/:id", async (req, res) => {
+  const { id } = req.params;
 
-  const product = await Product.findOne({ name: name });
+  const product = await Product.findById({ _id : id});
 
   res.json({
     status: "success",
