@@ -64,7 +64,7 @@ app.post("/product", async (req, res) => {
   });
 });
 
-//get products using name
+//get products using id
 app.get("/product/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -107,6 +107,7 @@ app.put("/product/:_id", async (req, res) => {
   const { name, description, price, productImage, brand } = req.body;
 
   await Product.updateOne(
+
     { _id: _id },
     {
       $set: {

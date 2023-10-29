@@ -21,16 +21,18 @@ function ProductDetail() {
     <>
       <h1 className="text-center">ProductDetail</h1>
       <h5 className="text-center mt-2">Product ID {id}</h5>
-      <div className=" shadow d-flex justify-content-evenly align-items-center ">
-        <div>
+      <div className="container mt-5" >
+      <div className="border shadow d-flex justify-content-evenly align-items-center ">
+        <div className="product-container">
           <img src={product?.productImage} style={{ width: "300px" }} />
         </div>
-        <div>
-          <p>{product?.name}</p>
-          <p>{product?.price}</p>
-          <p>{product?.description}</p>
-          <p>{product?.brand}</p>
+        <div className="">
+          <h4 className="child-element px-5">{product?.name}</h4>
+          <p className="child-element px-5">{product?.description}</p>
+          <p className="child-element px-5">₹ {product?.price}</p>
+          <h6 className="child-element px-5">{product?.brand}</h6>
         </div>
+      </div>
       </div>
     </>
   );
